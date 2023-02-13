@@ -66,4 +66,4 @@ jobs:
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/springboot-ec2-aws:latest
             docker stop ec2_aws
             docker rm ec2_aws
-            docker run -d -p 8080:8080 --name ec2_aws ${{ secrets.DOCKERHUB_USERNAME }}/springboot-ec2-aws:latest 
+            docker run -p 8080:8080 --name ec2_aws ${{ secrets.DOCKERHUB_USERNAME }}/springboot-ec2-aws:latest 
