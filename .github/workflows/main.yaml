@@ -60,7 +60,8 @@ jobs:
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
-          key: ${{ secrets.AWS_AWS_KEY }}
+          key: ${{ secrets.AWS_KEY }}
+          port: ${{ secrets.AWS_PORT }}
           script: |
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/springboot-ec2-aws:latest
             docker stop ec2_aws
