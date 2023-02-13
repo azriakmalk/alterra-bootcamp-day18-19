@@ -23,6 +23,10 @@ public class ProductController {
     ProductService productService;
 
     @Operation(summary = "Get all products")
+    @GetMapping(path = "/cobain")
+    public ResponseEntity<String> cobain() {
+        return new ResponseEntity<>("Cobain ini mah yak", HttpStatus.OK);
+    }
     @GetMapping(path = "/getProducts")
     public ResponseEntity<List<Product>> getProducts() {
         try {
