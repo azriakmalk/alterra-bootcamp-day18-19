@@ -58,9 +58,9 @@ jobs:
       - name: Docker
         uses: appleboy/ssh-action@master
         with:
-          host: ${{secret.AWS_HOST}}
-          username: ${{secret.AWS_USERNAME}}
-          key: ${{secret.AWS_AWS_KEY}}
+          host: ${{ secret.AWS_HOST }}
+          username: ${{ secret.AWS_USERNAME }}
+          key: ${{ secret.AWS_AWS_KEY }}
           script: |
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/springboot-ec2-aws:latest
             docker stop ec2_aws
