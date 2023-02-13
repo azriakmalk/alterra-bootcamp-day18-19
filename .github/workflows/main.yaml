@@ -58,10 +58,10 @@ jobs:
       - name: Docker
         uses: appleboy/ssh-action@master
         with:
-          host: ec2-54-248-190-100.ap-northeast-1.compute.amazonaws.com
-          username: ec2-user
-          key: b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcnNhAAAAAwEAAQAAAQEArDspnjOe0MazwYtHsMSMunYpLrYlJ8BmHBTYcTf/Ak6DF0c9/zzqGlx+kN8HQlt+j8KcKkbA7yp2NSfH55l7P0cs3tuxRa0yACdLcSElcdjsPkuszgFBWIHNx19OV4maNzkVGRBa5uJgvIBNnWP6s6u7Pts+eUpNshjWQ28/6bm6JcyVD6s8npYbsHMMc13XOr/XdXlkOyPeDvZbbER09WBzP/a8SZUjr9S7JcuUvkPPFJsj7vxQ1dYpTe0pYKK59uuQJachiTqm1155al3uxyq0vDjhQCQqwrvdEyCdUJzFKoGTILxNmru1zeasUOYZHos2f4Sd1rbGqBOjIXg8swAAA9BSDwkcUg8JHAAAAAdzc2gtcnNhAAABAQCsOymeM57QxrPBi0ewxIy6dikutiUnwGYcFNhxN/8CToMXRz3/POoaXH6Q3wdCW36PwpwqRsDvKnY1J8fnmXs/Ryze27FFrTIAJ0txISVx2Ow+S6zOAUFYgc3HX05XiZo3ORUZEFrm4mC8gE2dY/qzq7s+2z55Sk2yGNZDbz/pubolzJUPqzyelhuwcwxzXdc6v9d1eWQ7I94O9ltsRHT1YHM/9rxJlSOv1Lsly5S+Q88UmyPu/FDV1ilN7Slgorn265AlpyGJOqbXXnlqXe7HKrS8OOFAJCrCu90TIJ1QnMUqgZMgvE2au7XN5qxQ5hkeizZ/hJ3WtsaoE6MheDyzAAAAAwEAAQAAAQB4r4BLNfrMauAc+B8FM8U1B4V2EPZaM4yZktXUCBvuHtvnHOnJh4K3dCbQFyg8DGbUD9dkHG4naQap2rVOiZL+VT6Q7zr6CxHlX6OSo1pcu1dXk6mENQb4IQTz9smrt2VT2vD4vigkb26/x9wbNKrA6c5sji7pyPJGoPbLDBKqEG2dg7sA7YZ9xkqOe2OGT9phOoQPzX21ax2W3lTqBLWB/czYu9KnRxUqp+6/YXwXZ2fAiSBvK13g7xMIKh1zLGrokCD6bxcGIgybtC9Jj6hl5D5627bO1rK4IL/6EcthCe65JzRtTUUojCAZIUTSFQ3N0CJT/sn5C3tRrVb1XKr5AAAAgQC7p7hejowEvseWRHYovFmleAC1MiVBCZFn1ea6C+E8FRnK9H94JEpNwATA0fBGWx8FmrOsFnombA3McAE5rUPgHFu9b7tqyDtZDKm5/y0v9vQWmOG8wbbPkvxcOPObYPXi3HPYR7Pq5gg0MYwAxOWnludglEvyv/yE+r+6yns8XQAAAIEA7BrkSMtJfqGLwacYtSGwFX1fszmR9opQ+eB2e9gP6/JR/F5bF7B2QeodmUomSUCTwcEl5YjzMpZFDMFX/yhos7XSuVMon4HU+DAqvrY5GyfdXo6oKbL57VGq4cNbW1lxM5cnrg16azuHh5lC07AyIKSWx/bE626Pdo7WJZ2U0Z8AAACBALq+bDSgmqw0NoRarLow4EC19kShqhEKzyO+I6vpfJx2lOxjyWQgvsvpECIc2CSufApnwAESQb/uS7bSzfAyuEEJuvun3X7lDrzJNqrKLit5XomhaK61BSv1+kmAUKK34txz09W4V/71jauyzRkfkbzpv0WnwPlBNQ1XrVLG24RtAAAAEWNpL2NkLWphdmEtc3ByaW5nAQIDBAUGBwgJ
-          port: 22
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_KEY }}
+          port: ${{ secrets.AWS_PORT }}
           script: |
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/springboot-ec2-aws:latest
             docker stop ec2_aws
